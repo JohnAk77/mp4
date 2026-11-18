@@ -3,28 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amiwa Video</title>
+    <title>Video Player</title>
     <style>
-        body {
-            margin: 0;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        video { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
-    <video autoplay muted loop playsinline>
+    <video id="myVideo" controls autoplay muted loop playsinline>
         <source src="kid.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <script>
+        const vid = document.getElementById('myVideo');
+        vid.onerror = function() {
+            alert("Error: 'kid.mp4' could not be loaded. Check if the filename matches exactly.");
+        };
+    </script>
 </body>
 </html>
